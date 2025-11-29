@@ -5,6 +5,7 @@ import com.pedropathing.control.PIDFCoefficients;
 import com.pedropathing.follower.Follower;
 import com.pedropathing.follower.FollowerConstants;
 import com.pedropathing.ftc.FollowerBuilder;
+import com.pedropathing.ftc.drivetrains.Swerve;
 import com.pedropathing.ftc.drivetrains.SwerveConstants;
 import com.pedropathing.ftc.localization.constants.PinpointConstants;
 import com.pedropathing.paths.PathConstraints;
@@ -15,19 +16,23 @@ import com.qualcomm.robotcore.hardware.HardwareMap;
 
 import org.firstinspires.ftc.robotcore.external.navigation.DistanceUnit;
 
+
 public class Constants {
     public static FollowerConstants followerConstants = new FollowerConstants()
-            .forwardZeroPowerAcceleration(-182.18)
-            .lateralZeroPowerAcceleration(-182.18)
+            .forwardZeroPowerAcceleration(-138.72)
+            .lateralZeroPowerAcceleration(-138.72)
             .useSecondaryDrivePIDF(true)
             .useSecondaryHeadingPIDF(true)
             .useSecondaryTranslationalPIDF(true)
-            .translationalPIDFCoefficients(new PIDFCoefficients(0.03, 0, 0 , 0))
-            .secondaryTranslationalPIDFCoefficients(new PIDFCoefficients(0.05, 0, 0.01, 0))
-            .headingPIDFCoefficients(new PIDFCoefficients(.75, 0 , 0, 0))
-            .secondaryHeadingPIDFCoefficients(new PIDFCoefficients(1.2, 0, 0.1, 0))
+            .translationalPIDFCoefficients(new PIDFCoefficients(0.01, 0, 0.005 , 0))
+            .secondaryTranslationalPIDFCoefficients(new PIDFCoefficients(0.06, 0, 0.003, 0.01))
+            .headingPIDFCoefficients(new PIDFCoefficients(1.25, 0 , 0.003, 0))
+            .secondaryHeadingPIDFCoefficients(new PIDFCoefficients(0.63, 0, 0.035, 0))
             .drivePIDFCoefficients(new FilteredPIDFCoefficients(0.0035, 0, 0.00001, 0.6, 0.13))
             .secondaryDrivePIDFCoefficients(new FilteredPIDFCoefficients(0.005, 0, 0.000005, 0.6, 0.13))
+
+//            .headingPIDFSwitch(Math.toRadians(15))
+//            .translationalPIDFSwitch(5)
             .mass(5.362); //TODO: actually weigh the robot, in kg
 
     //top left = 1191g
@@ -56,10 +61,10 @@ public class Constants {
 //            .rightFrontTurnPID(new PIDFCoefficients(0.003, 0.0, 0.001, 0.0))
 //            .leftRearTurnPID(new PIDFCoefficients(0.003, 0.0, 0.001, 0.0))
 //            .rightRearTurnPID(new PIDFCoefficients(0.003, 0.0, 0.001, 0.0))
-            .leftFrontTurnPID(new PIDFCoefficients(0.003,0, 0.000, 0.0))
-            .rightFrontTurnPID(new PIDFCoefficients(0.003, 0.0, 0.000, 0.0))
-            .leftRearTurnPID(new PIDFCoefficients(0.003, 0.0, 0.000, 0.0))
-            .rightRearTurnPID(new PIDFCoefficients(0.003, 0.0, 0.000, 0.0))
+            .leftFrontTurnPID(new PIDFCoefficients(0.005,0, 0.000, 0.0))
+            .rightFrontTurnPID(new PIDFCoefficients(0.005, 0.0, 0.000, 0.0))
+            .leftRearTurnPID(new PIDFCoefficients(0.005, 0.0, 0.000, 0.0))
+            .rightRearTurnPID(new PIDFCoefficients(0.005, 0.0, 0.000, 0.0))
             .leftFrontMotorDirection(DcMotorSimple.Direction.REVERSE)
             .rightFrontMotorDirection(DcMotorSimple.Direction.FORWARD)
             .leftRearMotorDirection(DcMotorSimple.Direction.REVERSE)

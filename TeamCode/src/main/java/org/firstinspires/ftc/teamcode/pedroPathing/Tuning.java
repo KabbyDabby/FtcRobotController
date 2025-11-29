@@ -960,7 +960,7 @@ class DriveTuner extends OpMode {
  * @version 1.0, 3/12/2024
  */
 class Line extends OpMode {
-    public static double DISTANCE = 80;
+    public static double DISTANCE = 60;
     private boolean forward = true;
 
     private Path forwards;
